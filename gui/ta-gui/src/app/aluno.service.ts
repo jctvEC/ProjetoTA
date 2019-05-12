@@ -42,12 +42,12 @@ export class AlunoService {
     return Promise.reject(erro.message || erro);
   }
   
-  remover(aluno: Aluno): Promise<Aluno> {
-    return this.http.put(this.taURL + "/alunoDelete",JSON.stringify(aluno), {headers: this.headers})
-         .toPromise()
-         .then(res => {
-            if (res.json().success) {return aluno;} else {return null;}
-         })
-         .catch(this.tratarErro);
-  }
-}
+//   remover(aluno: Aluno): Promise<Aluno> {
+//     return this.http.put(this.taURL + "/alunoDelete",JSON.stringify(aluno), {headers: this.headers})
+//          .toPromise()
+//          .then(res => {
+//             if (res.json().success) {return aluno;} else {return null;}
+//          })
+//          .catch(this.tratarErro);
+//   }
+// }
