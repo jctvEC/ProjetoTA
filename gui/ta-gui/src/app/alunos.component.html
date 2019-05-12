@@ -12,6 +12,9 @@
    <td *ngIf="cpfduplicado">
      Já existe um aluno com esse CPF
    </td>
+   <td *ngIf="githubduplicado">
+      ou já existe um aluno com esse Login
+   </td>
    <td *ngIf="cpfNaoCadastrado">
       Não existe um aluno com esse CPF
    </td>
@@ -23,9 +26,7 @@
 <tr>
    <td><label>github </label></td>
    <td><input [(ngModel)]="aluno.github" ></td>
-   <td *ngIf="githubduplicado">
-      Ou já existe um aluno com esse Login
-   </td>
+
    <td *ngIf="githubNaoCadastrado">
       Não existe um aluno com esse github
    </td>
@@ -44,7 +45,7 @@
    <td name="cpflist">{{a.cpf}}</td>
    <td>{{a.email}}</td>
    <td>{{a.github}}</td>
-   <td><button (click)="removerAluno(a)">RemoverNaoFunciona</button></td>
+   <td><button (click)="removerAluno(a)">Remover</button></td>
 </tr>
 </table>
 

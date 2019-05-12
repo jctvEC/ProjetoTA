@@ -26,7 +26,7 @@ export class AlunosComponent implements OnInit {
               this.aluno = new Aluno();
            } else {
               this.cpfduplicado = true;
-              this.githubduplicado = true;
+             this.githubduplicado = true;
            }
         })
         .catch(erro => alert(erro));
@@ -46,7 +46,7 @@ export class AlunosComponent implements OnInit {
    }
 
 
-   removerAluno(a: Aluno): void { 
+      //removerAluno(a: Aluno): void { By Adriano
       // this.alunoService.remover(a)
       // .then(ab => {
       //    if (ab) {
@@ -55,6 +55,19 @@ export class AlunosComponent implements OnInit {
       //    }
       // })
       // .catch(erro => alert(erro));
-   }
+      //}
+
+      removerAluno(aluno : Aluno):void{
+         //============aqui by Zegabr
+         this.alunoService.remover(aluno)
+         .then(ab => {
+                  if (ab) {
+                     this.alunos = this.alunos.filter(b => b.cpf != ab.cpf);
+                     this.aluno = new Aluno();
+                  }
+               })
+         .catch(erro => alert(erro));
+         //=====================
+      }
 
 }
