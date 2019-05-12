@@ -32,4 +32,11 @@ export class CadastroDeAlunos {
   getAlunos(): Aluno[] {
     return this.alunos;
   }
+
+  remover(aluno:Aluno): Aluno[]{
+    //======================aqui by zegabr
+    this.alunos = this.alunos.filter(a => a.cpf != aluno.cpf);
+    return this.alunos;
+    //==========================
+  }
 }

@@ -22,6 +22,14 @@ app.get('/alunos', function (req, res) {
   res.send(JSON.stringify(cadastro.getAlunos()));
 })
 
+app.delete('/aluno', function(req: express.Request, res: express.Response){
+  //====================AQUI by zegabr
+  var cpf = req.body;
+  var alunos = cadastro.remover(cpf);//retorna array de alunos
+  res.send({ "success": "O aluno foi removido com sucesso" });
+  //================================
+  });
+
 app.post('/aluno', function (req: express.Request, res: express.Response) {
   var aluno: Aluno = <Aluno> req.body; //verificar se é mesmo Aluno!
   aluno = cadastro.criar(aluno);

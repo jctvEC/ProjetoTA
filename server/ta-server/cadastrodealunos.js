@@ -7,7 +7,7 @@ class CadastroDeAlunos {
     }
     criar(aluno) {
         var result = null;
-        if (this.cpfNaoCadastrado(aluno.cpf)) {
+        if (this.cpfNaoCadastrado(aluno.cpf) && this.githubNaoCadastrado(aluno.github)) {
             result = new aluno_1.Aluno();
             result.copyFrom(aluno);
             this.alunos.push(result);
@@ -17,6 +17,9 @@ class CadastroDeAlunos {
     cpfNaoCadastrado(cpf) {
         return !this.alunos.find(a => a.cpf == cpf);
     }
+    githubNaoCadastrado(github) {
+        return !this.alunos.find(a => a.github == github);
+    }
     atualizar(aluno) {
         var result = this.alunos.find(a => a.cpf == aluno.cpf);
         if (result)
@@ -25,6 +28,12 @@ class CadastroDeAlunos {
     }
     getAlunos() {
         return this.alunos;
+    }
+    remover(aluno) {
+        //======================aqui by zegabr
+        this.alunos = this.alunos.filter(a => a.cpf != aluno.cpf);
+        return this.alunos;
+        //==========================
     }
 }
 exports.CadastroDeAlunos = CadastroDeAlunos;

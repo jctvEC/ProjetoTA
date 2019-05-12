@@ -17,6 +17,13 @@ app.use(bodyParser.json());
 app.get('/alunos', function (req, res) {
     res.send(JSON.stringify(cadastro.getAlunos()));
 });
+app.delete('/aluno', function (req, res) {
+    //====================AQUI by zegabr
+    var cpf = req.body;
+    var alunos = cadastro.remover(cpf); //retorna array de alunos
+    res.send({ "success": "O aluno foi removido com sucesso" });
+    //================================
+});
 app.post('/aluno', function (req, res) {
     var aluno = req.body; //verificar se é mesmo Aluno!
     aluno = cadastro.criar(aluno);
