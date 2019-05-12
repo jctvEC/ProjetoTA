@@ -16,7 +16,7 @@ export class MetasComponent implements OnInit {
 
    atualizarAluno(aluno: Aluno): void {
       this.alunoService.atualizar(aluno)
-      .catch(erro => alert(erro));
+         .catch(erro => alert(erro));
    }
 
    ngOnInit(): void {
