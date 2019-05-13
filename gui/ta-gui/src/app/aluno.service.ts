@@ -41,24 +41,4 @@ export class AlunoService {
     console.error('Acesso mal sucedido ao serviço de alunos',erro);
     return Promise.reject(erro.message || erro);
   }
-  
-//   remover(aluno: Aluno): Promise<Aluno> { By Adriano
-//     return this.http.put(this.taURL + "/alunoDelete",JSON.stringify(aluno), {headers: this.headers})
-//          .toPromise()
-//          .then(res => {
-//             if (res.json().success) {return aluno;} else {return null;}
-//          })
-//          .catch(this.tratarErro);
-//   }
-
-  remover(aluno: Aluno): Promise<Aluno>{//recebe cpf:string
-    //=======================AQuI by Zegabr <3
-    return this.http.delete(this.taURL + "/aluno",{headers: this.headers, body: JSON.stringify(aluno)})//AQUI
-        .toPromise()
-        .then(res => {
-            if (res.json().success) {return aluno;} else {return null;}
-        })
-        .catch(this.tratarErro);
-    //=============================
-  }
 }

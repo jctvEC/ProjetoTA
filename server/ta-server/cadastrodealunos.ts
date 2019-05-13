@@ -5,7 +5,7 @@ export class CadastroDeAlunos {
 
   criar(aluno: Aluno): Aluno {
     var result = null;
-    if (this.cpfNaoCadastrado(aluno.cpf) && this.githubNaoCadastrado(aluno.github)) {
+    if (this.cpfNaoCadastrado(aluno.cpf)) {
       result = new Aluno();
       result.copyFrom(aluno);
       this.alunos.push(result);
@@ -15,13 +15,7 @@ export class CadastroDeAlunos {
 
   cpfNaoCadastrado(cpf: string): boolean {
      return !this.alunos.find(a => a.cpf == cpf);
-     
   }
-
-  githubNaoCadastrado(github: string): boolean { //testando se vai fazer verificacao do github
-    return !this.alunos.find(a => a.github == github);
-  }
-
 
   atualizar(aluno: Aluno): Aluno {
     var result: Aluno = this.alunos.find(a => a.cpf == aluno.cpf);
@@ -31,12 +25,5 @@ export class CadastroDeAlunos {
 
   getAlunos(): Aluno[] {
     return this.alunos;
-  }
-
-  remover(aluno:Aluno): Aluno[]{
-    //======================aqui by zegabr
-    this.alunos = this.alunos.filter(a => a.cpf != aluno.cpf);
-    return this.alunos;
-    //==========================
   }
 }

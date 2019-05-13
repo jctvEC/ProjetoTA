@@ -17,7 +17,6 @@ import { AlunoService } from './aluno.service';
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule, by Adriano  problems
     FormsModule,
     HttpModule, 
     RouterModule.forRoot([
